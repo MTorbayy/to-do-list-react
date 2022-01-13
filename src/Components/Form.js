@@ -1,4 +1,4 @@
-import {usteState} from 'react'
+import {useState} from 'react'
 import Item from './Item'
 
 
@@ -7,6 +7,12 @@ import Item from './Item'
 
 
 export default function Form() {
+
+    const [dataArr, setDataArr] = useState([
+        {txt: "Promener le chien"},
+        {txt: "Sport"},
+        {txt: "Coder"},
+    ])
 
     return (
 
@@ -22,7 +28,14 @@ export default function Form() {
 
          <h2>Liste des choses à faire :</h2>
          <ul className="list-group">
-            <Item />
+            {dataArr.map((item, index) => {
+                return (
+                    <Item 
+                    txt={item.txt}
+                    key={index}
+                    />
+                )
+            })}
          </ul>
         </div>
 

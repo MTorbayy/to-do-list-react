@@ -28,11 +28,15 @@ export default function Form() {
     const addToDo = e => {
         e.preventDefault()
         const newArr = [...dataArr]
+        //toujours travailler à partir d'une copie du state actuel
+        
         const newTodo = {}
         newTodo.txt = stateInput
         newTodo.id = uuidv4()
+
         newArr.push(newTodo)
         setDataArr(newArr)
+
         setStateInput("")
         // lié  avec value de input pour two way data binding
     }
